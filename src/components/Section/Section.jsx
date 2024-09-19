@@ -55,7 +55,48 @@ const Section = () => {
             color: "var(--green)",
           }}
         >
-          Collapse
+          Show All
+        </Button>
+      </Box>
+      <Grid2 container sx={{ margin: "0px 0px", gap: "10px" }} spacing={0}>
+        {albums.map((album) => (
+          <Grid2 item key={album.id} size={{ md: 1.6 }}>
+            {/* <Cart
+              title={item.title}
+              image={item.image}
+              follows={item.follows}
+            /> */}
+            <Cart album={album} />
+          </Grid2>
+        ))}
+      </Grid2>
+      <br className="line"/>
+      <Box
+        sx={{
+          padding: "0px 0px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <Typography
+          sx={{
+            fontFamily: "Poppins, sans-serif",
+            fontWeight: 600,
+            fontSize: "20px",
+          }}
+        >
+          New Albums
+        </Typography>
+        <Button
+          sx={{
+            fontFamily: "Poppins, sans-serif",
+            fontWeight: 600,
+            fontSize: "20px",
+            color: "var(--green)",
+          }}
+        >
+          Show All
         </Button>
       </Box>
       <Grid2 container sx={{ margin: "0px 0px", gap: "10px" }} spacing={0}>
