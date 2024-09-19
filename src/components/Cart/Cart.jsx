@@ -2,7 +2,7 @@ import {
   Box,
   Card,
   CardActionArea,
-  CardActions,
+  // CardActions,
   CardContent,
   CardMedia,
   Chip,
@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import React from "react";
 // import englishSong from "../../assets/english_song.png";
+
 
 function Cart({ album }) {
   return (

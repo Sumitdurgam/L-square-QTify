@@ -5,11 +5,16 @@ import Cart from "../Cart/Cart";
 
 const Section = () => {
   const [albums, setAlbums] = useState([]);
+  // const [newAlbums, setNewAlbum] = useState([]);
+  const [showAll, setShowAll] = useState(false);
 
   const API_URL = "https://qtify-backend-labs.crio.do/albums/top";
+  const Top_ALBUMS_API = "https://qtify-backend-labs.crio.do/albums/top";
+  const NEW_ALBUMS = "https://qtify-backend-labs.crio.do/albums/top";
 
   useEffect(() => {
-    getAlbumData();
+    getAlbumData(Top_ALBUMS_API, setAlbums);
+    getAlbumData(NEW_ALBUMS, setAlbums);
   }, []);
 
   const getAlbumData = async () => {
@@ -22,6 +27,7 @@ const Section = () => {
       console.log(err, "error from catch block");
     }
   };
+
 
   return (
     <Box
@@ -54,8 +60,9 @@ const Section = () => {
             fontSize: "20px",
             color: "var(--green)",
           }}
+          onClick={() => setShowAll(!showAll)}
         >
-          Show All
+          {showAll ? "Collapse" : "Show All"}
         </Button>
       </Box>
       <Grid2 container sx={{ margin: "0px 0px", gap: "10px" }} spacing={0}>
@@ -95,8 +102,9 @@ const Section = () => {
             fontSize: "20px",
             color: "var(--green)",
           }}
+          onClick={() => setShowAll(!showAll)}
         >
-          Show All
+          {showAll ? "Collapse" : "Show All"}
         </Button>
       </Box>
       <Grid2 container sx={{ margin: "0px 0px", gap: "10px" }} spacing={0}>
