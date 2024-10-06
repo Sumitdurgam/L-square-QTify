@@ -2,7 +2,6 @@ import {
   Box,
   Card,
   CardActionArea,
-  // CardActions,
   CardContent,
   CardMedia,
   Chip,
@@ -11,14 +10,16 @@ import {
 import React from "react";
 // import englishSong from "../../assets/english_song.png";
 
+function Cart(props) {
+  const { title, image, follows, likes } = props;
 
-function Cart({ album }) {
   return (
-    <Box sx={{ marginLeft: 3 }}>
+    <Box sx={{ marginLeft: 0 }}>
       <Card
         sx={{
-          maxWidth: 300,
-          // maxHeight: 400,
+          maxWidth: 259,
+          mx: 3,
+          maxHeight: 300,
           background: "var(--color-black)",
           borderRadius: "10px",
         }}
@@ -26,9 +27,9 @@ function Cart({ album }) {
         <CardActionArea>
           <CardMedia
             component="img"
-            height="170"
-            image={album.image}
-            alt={album.title}
+            height="210"
+            image={image}
+            alt="song1"
             sx={{ borderRadius: "10px 10px 0px 0px" }}
           />
           <CardContent
@@ -38,13 +39,27 @@ function Cart({ album }) {
               padding: "10px",
             }}
           >
-            <Chip
-              sx={{
-                background: "var(--color-black)",
-                color: "var(--color-white)",
-              }}
-              label={`${album.follows} follows`}
-            />
+            {follows && (
+              <Chip
+                sx={{
+                  borderRadius: "10px !important",
+                  background: "var(--color-black)",
+                  color: "var(--color-white)",
+                }}
+                label={`${follows} Follows`}
+              />
+            )}
+
+            {likes && (
+              <Chip
+                sx={{
+                  borderRadius: "10px !important",
+                  background: "var(--color-black)",
+                  color: "var(--color-white)",
+                }}
+                label={`${likes} Likes`}
+              />
+            )}
           </CardContent>
         </CardActionArea>
         {/* <CardActions>
@@ -53,14 +68,15 @@ function Cart({ album }) {
       </Card>
       <Typography
         sx={{
-          mt:1,
+          mt: 1,
+          px: 3,
           fontFamily: "Poppins, sans-serif",
           fontWeight: 400,
           fontSize: "14px",
           color: "var(--color-white)",
         }}
       >
-        {album.title}
+        {title}
       </Typography>
     </Box>
   );
